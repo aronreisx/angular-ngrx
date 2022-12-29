@@ -1,0 +1,66 @@
+<div class="container mt-2">
+  <div class="d-flex justify-content-center py-4">
+    <div>
+      <a routerLink="/add" class="btn btn-dark">Add a new movie</a>
+    </div>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-center">
+    <div class="col" *ngFor="let movie of movies$ | async">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{ movie.title }}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{ movie.director }}</li>
+          <li class="list-group-item">${{ movie.price }}</li>
+        </ul>
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div>
+              <!-- [routerLink]="['/edit', movie.id]" -->
+              <a class="btn btn-dark">
+                Edit movie
+              </a>
+            </div>
+            <div>
+              <button class="btn btn-dark" (click)="openDeleteModal(movie.id)">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="deleteModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirm Delete</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">Are sure to delete this item?</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-danger" (click)="delete()">
+          Confirm Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,7 +9,8 @@
     "test": "ng test",
     "test:coverage": "ng test --coverage",
     "test:watch": "ng test --watch",
-    "json-server": "node_modules/.bin/json-server --watch db.json"
+    "json-server": "node_modules/.bin/json-server --watch db.json",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -32,9 +33,17 @@
   "devDependencies": {
     "@angular-builders/jest": "^15.0.0",
     "@angular-devkit/build-angular": "^15.0.4",
+    "@angular-eslint/builder": "15.1.0",
+    "@angular-eslint/eslint-plugin": "15.1.0",
+    "@angular-eslint/eslint-plugin-template": "15.1.0",
+    "@angular-eslint/schematics": "15.1.0",
+    "@angular-eslint/template-parser": "15.1.0",
     "@angular/cli": "~15.0.4",
     "@angular/compiler-cli": "^15.0.4",
     "@types/jest": "^29.2.5",
+    "@typescript-eslint/eslint-plugin": "5.44.0",
+    "@typescript-eslint/parser": "5.44.0",
+    "eslint": "^8.28.0",
     "jest": "^29.3.1",
     "jest-preset-angular": "^12.2.3",
     "json-server": "^0.17.1",
